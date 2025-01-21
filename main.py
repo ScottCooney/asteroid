@@ -3,6 +3,7 @@ from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
+import sys
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 def main():
@@ -31,6 +32,10 @@ def main():
         screen.fill("black")
         for obj in updatable:
             obj.update(dt)
+        for obj in asteroids:
+           if obj.collide(player)== True:
+               print("Game Over!")
+               sys.exit()
         for obj in drawable:
             obj.draw(screen)
         pygame.display.flip()
