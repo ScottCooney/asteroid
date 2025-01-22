@@ -23,7 +23,6 @@ class CircleShape(pygame.sprite.Sprite):
     def collide(self, CircleShape):
         distance = pygame.Vector2.distance_to(self.position, CircleShape.position)
         
-
         if distance < self.radius:
             return True
         return False
